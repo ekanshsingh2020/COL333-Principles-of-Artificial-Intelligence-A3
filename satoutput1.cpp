@@ -58,22 +58,25 @@ int main(int argc, char** argv)
     else
     {
         sat_output<<"#1\n";
+        bool printed_smt = false;
         for(int i=0;i<n;i++)
         {
             if(result[i]>0)
             {
-                sat_output<<result[i]<<" ";
+                if(printed_smt){sat_output<<" "<<result[i];}
+                else{sat_output<<result[i];printed_smt=true;}
             }
         }
         sat_output<<"\n#2\n";
+        printed_smt = false;
         for(int i=n;i<2*n;i++)
         {
             if(result[i]>0)
             {
-                sat_output<<result[i]-n<<" ";
+                if(printed_smt){sat_output<<" "<<result[i]-n;}
+                else{sat_output<<result[i]-n;printed_smt=true;}
             }
         }
-        sat_output<<"\n";
     }
     sat_output.close();
     // // cout<<"Done"<<endl;
