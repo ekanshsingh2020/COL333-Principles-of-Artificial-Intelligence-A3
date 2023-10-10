@@ -1,4 +1,4 @@
-#include <basic_clauses.h>
+#include "basic_clauses.h"
 using namespace std;
 
 BasicClauses::BasicClauses()
@@ -13,7 +13,7 @@ void BasicClauses::equal(int x, int y)
     clauses->push_back(eq2);
 }
 
-void BasicClauses::and(int x, int y)
+void BasicClauses::and1(int x, int y)
 {
     vector<int> eq1{x};
     vector<int> eq2{y};
@@ -21,13 +21,13 @@ void BasicClauses::and(int x, int y)
     clauses->push_back(eq2);
 }
 
-void BasicClauses::or(int x, int y)
+void BasicClauses::or1(int x, int y)
 {
     vector<int> eq1{x,y};
     clauses->push_back(eq1);
 }
 
-void BasicClauses::xor(int x, int y)
+void BasicClauses::xor1(int x, int y)
 {
     vector<int> eq1{x,y};
     vector<int> eq2{-x,-y};
@@ -35,7 +35,7 @@ void BasicClauses::xor(int x, int y)
     clauses->push_back(eq2);
 }
 
-void BasicClauses::and(int x, int y, int z)
+void BasicClauses::and2(int x, int y, int z)
 {
     vector<int> eq1{z};
     vector<int> eq2{y};
@@ -45,13 +45,13 @@ void BasicClauses::and(int x, int y, int z)
     clauses->push_back(eq3);
 }
 
-void BasicClauses::or(int x, int y, int z)
+void BasicClauses::or2(int x, int y, int z)
 {
     vector<int> eq1{x,y,z};
     clauses->push_back(eq1);
 }
 
-void BasicClauses::xor(int x, int y, int z)
+void BasicClauses::xor2(int x, int y, int z)
 {
     vector<int> eq1{x,y,z};
     vector<int> eq2{-x,-y,z};
@@ -61,8 +61,4 @@ void BasicClauses::xor(int x, int y, int z)
     clauses->push_back(eq2);
     clauses->push_back(eq3);
     clauses->push_back(eq4);
-}
-
-BasicClauses::~BasicClauses()
-{
 }
