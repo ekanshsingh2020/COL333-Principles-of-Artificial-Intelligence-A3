@@ -18,7 +18,7 @@ high=$(($n))
 while [ $low -lt $high ]; do
     mid=$(expr $low + '(' $high - $low + 1 ')' / 2)
     ./part2 $1 $mid
-    timeout 5s ./MiniSat_v1.14_linux $1.satinput $1.satoutput
+    timeout 5s ./minisat $1.satinput $1.satoutput
     outgraph="$1.satoutput"
     line=$(head -n 1 $outgraph)
     if [ "$line" == "SAT" ]; then 
