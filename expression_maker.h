@@ -9,7 +9,7 @@ class ExpressionMaker {
 public:
     ExpressionMaker(int n);
     void process(int k1, int k2);
-    void remove_nonedges();
+    void remove_nonedges(int k2);
     void remove_repetition();
     void add_range(int l, int r, int k);
     vector<int> half_adder(int l, int r);

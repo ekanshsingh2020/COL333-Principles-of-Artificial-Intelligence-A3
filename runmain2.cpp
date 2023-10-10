@@ -1,6 +1,7 @@
 #include "expression_maker.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int main(int argc, char** argv)
     ifstream graph_input; 
     graph_input.open(ingraph);
     int n,m,k1,k2,a,b;
-    graph_input>>n>>m>>k1>>k2;
+    graph_input>>n>>m;
     // // cout<<n<<" "<<m<<" "<<k1<<" "<<k2<<"\n";
 
     // // cout<<"Input finished"<<endl;
@@ -27,14 +28,13 @@ int main(int argc, char** argv)
         graph_input>>a>>b;
         em.adj_mat[a][b] = true;
         em.adj_mat[b][a] = true;
-        em.adj_mat[a+n][b+n] = true;
-        em.adj_mat[b+n][a+n] = true;
     }
     graph_input.close();
 
     // // cout<<"Process started"<<endl;
     //The entire pipeline starts
-    em.process(k1,k2);
+    k1 = stoi(argv[2]);
+    em.process(k1,-1);
 
     // // cout<<"Process ended"<<endl;
 
